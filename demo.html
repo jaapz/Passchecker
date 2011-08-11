@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Passchecker Demo</title>
+
+	<!-- Styling for this demo  -->
+	<link rel="text/css" href="css/demo.css" />
+	
+	<!-- Include the mootools library first! -->	
+	<script type="text/javascript" src="js/mootools-core.js"></script>
+	<script type="text/javascript" src="js/mootools-more.js"></script>
+
+	<!-- Include Passchecker.js -->
+	<script type="text/javascript" src="src/Passchecker.js"></script>
+
+	<!-- Now set up the Passchecker on an element -->
+	<script type="text/javascript">
+		document.addEvent('domready', function() {
+			var Checker = new Passchecker({
+								checkElement: 'pcPassword', // the element of which we want to check the content
+								resultElement: 'pcResult', // the element which will hold the check's result, 
+
+								trigger: 'change', // event that will trigger the checking, possible values: 'change', 'keyup'
+							});
+		});
+	</script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Passchecker Demo</h1>
+		<p>Below is the input we are checking, below that is the element which will tell us how strong the password is.</p>
+		<div id="form">
+			Password: <input type="password" name="password" id="pcPassword" /><br />
+			<div id="pcResult">Type a password</div>
+		</div>
+	</div>
+</body>
+</html>

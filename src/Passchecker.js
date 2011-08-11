@@ -26,19 +26,29 @@ var Passchecker = new Class({
 	Implements: [Events, Options],
 
 	options: {
-		some: option,
-		another: option
+		checkElement: 'pcPassword', // the element of which we want to check the content
+		resultElement: 'pcResult', // the element which will hold the check's result, 
+
+		trigger: 'change', // event that will trigger the checking, possible values: 'change', 'keyup'
+
+		results: ['Garbage', 'Weak', 'Medium', 'Strong', 'Super'], // possible results, from weakest to strongest
+		classes: ['pc-garbage', 'pc-weak', 'pc-medium', 'pc-strong', 'pc-super'] // classes that will be given to the result element
 	},
 
-	initialize: function(options) {
+	fallback: false, // whether or not to use fallback mode
+
+	initialize: function(options, password) {
 		this.setOptions(options);
 
-		// do some more stuff
-		this.someFunction(true);
+		if (!$(this.options.resultElement))
+			this.fallback = true;
+
+		$(this.options.checkElement).addEvent(this.options.trigger, this.check);
 	},
 
-	someFunction: function(parameter) {
-		return parameter;
+	check: function(event) {
+		console.log('Starting check', 'Event: ', event);
+		return event;
 	}
 
 });
