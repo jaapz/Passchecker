@@ -37,7 +37,7 @@ var Passchecker = new Class({
 		results: ['Garbage', 'Weak', 'Medium', 'Strong', 'Super'], // possible results, from weakest to strongest
 		classes: ['pc-garbage', 'pc-weak', 'pc-medium', 'pc-strong', 'pc-super'], // classes that will be given to the result element
 		
-		bannedPasswords: [] // an array of password strings that also will be banned
+		bannedPasswords: [] // an array of passwords that also will be banned
 	},
 
 	fallback: false, // whether or not to use fallback mode
