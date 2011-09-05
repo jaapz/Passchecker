@@ -94,6 +94,7 @@ var Passchecker = new Class({
 		if (this.bannedPasswords.indexOf(value) > -1)
 		    this.level = 0;
 		    
+	    console.log(this.level);
 		$(this.options.resultElement).set('class', '').addClass(this.options.classes[this.level]);
 			
 		this.fireEvent('finish');
