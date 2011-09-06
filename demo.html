@@ -3,7 +3,7 @@
 	<title>Passchecker Demo</title>
 
 	<!-- Styling for this demo  -->
-	<link rel="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 	
 	<!-- Include the mootools library first! -->	
 	<script type="text/javascript" src="js/mootools-core.js"></script>
@@ -22,7 +22,17 @@
 			    checkElement: 'pcPassword', // the element of which we want to check the content
 				resultElement: 'pcResult', // the element which will hold the check's result, 
 
-				trigger: 'keyup' // event that will trigger the checking, possible values: 'change', 'keyup'
+				trigger: 'keyup', // event that will trigger the checking, possible values: 'change', 'keyup'
+				
+				onFinish: function (value) {
+				    // red, orange, yellow, blue, green
+				    var colors = ["#FF7171", "#FF9A71", "#FFE371","#64F48C", "#74FF71"];
+				
+				    $(this.options.resultElement).set('html', this.currentState());
+				    $(this.options.resultElement).tween('background-color', colors[this.level]);
+				    
+				    $('console').appendText("Text: " + value + ", Level: " + this.level + ", CurrentState: " + this.currentState() + "\n", "top");
+				}
 			});
 		});
 	</script>
@@ -30,11 +40,12 @@
 <body>
 	<div id="wrapper">
 		<h1>Passchecker Demo</h1>
-		<p>Below is the input we are checking, below that is the element which will tell us how strong the password is.</p>
+		<p>Below is the input we are checking, next to the input is the element which will tell us how strong the password is.</p>
 		<div id="form">
-			Password: <input type="password" name="password" id="pcPassword" /><br />
+			<div class="left">Password: <input type="password" name="password" id="pcPassword" /></div>
 			<div id="pcResult">Type a password</div>
 		</div>
+		<pre id="console"></pre>
 	</div>
 </body>
 </html>

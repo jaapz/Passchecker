@@ -70,25 +70,26 @@ var Passchecker = new Class({
 		var value = $(this.options.checkElement).value;
 		
 		// test for length > this.options.minLength
-		if (value.length > this.options.minLength)
+		if (value.length > this.options.minLength) {
 		    this.level++;
 		
-		// test for special characters
-		if (value.test('([!@#$%&]{1,})'))
-		    this.level++;
-		    
-		// test for uppercase and lowercase
-		if (value.test('([A-Z]{1,})'))
-		    this.level++;
+		    // test for special characters
+		    if (value.test('([!@#$%&]{1,})'))
+		        this.level++;
+		        
+		    // test for uppercase and lowercase
+		    if (value.test('([A-Z]{1,})'))
+		        this.level++;
 		
-		// test for numbers
-		var numCount = 0;
-		try { 
-		    numCount = value.match(new RegExp("[0-9]", 'g')).length; 
-		} catch (e) { }
+		    // test for numbers
+		    var numCount = 0;
+		    try { 
+		        numCount = value.match(new RegExp("[0-9]", 'g')).length; 
+		    } catch (e) { }
 		
-		if (numCount >= 2)
-		    this.level++;
+		    if (numCount >= 2)
+		        this.level++;
+		}
 		    
 		// test whether value is in blacklist
 		if (this.bannedPasswords.indexOf(value) > -1)
@@ -96,7 +97,7 @@ var Passchecker = new Class({
 		    
 		$(this.options.resultElement).set('class', '').addClass(this.options.classes[this.level]);
 			
-		this.fireEvent('finish');
+		this.fireEvent('finish', value);
 		return this.level;
 	}
 

@@ -1,0 +1,14 @@
+#form { overflow: hidden; }
+.left { float: left; }
+
+#pcResult {
+    padding: 3px 10px 3px 10px;
+    border-radius: 5px;
+    float: left;
+    margin-left: 5px;
+}
+
+pre {
+    color: #666;
+    font-size: 10px;
+}
