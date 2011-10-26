@@ -69,7 +69,7 @@ var Passchecker = new Class({
 
 	check: function(event) {
 
-	    this.level = 0;
+	    this.level = 1;
 		var value = $(this.options.checkElement).value;
 
 		// test for length > this.options.minLength
