@@ -8,7 +8,10 @@
     margin-left: 5px;
 }
 
-pre {
+#console {
     color: #666;
     font-size: 10px;
+    height: 100px;
+    overflow-y: auto;
 }
+
