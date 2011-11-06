@@ -30,6 +30,8 @@ var Passchecker = new Class({
 		checkElement: 'pcPassword', // the element of which we want to check the content
 		resultElement: 'pcResult', // the element which will hold the check's result,
 
+        setHtml: true, // whether to fill the resultElement with the currentState
+
 		trigger: 'keyup', // event that will trigger the checking, possible values: 'change', 'keyup'
 
 		minLength: 4, // minimal length
@@ -104,6 +106,9 @@ var Passchecker = new Class({
 
 		$(this.options.resultElement).set('class', '')
 		    .addClass(this.options.classes[this.level]);
+
+		if (this.options.setHtml)
+	        $(this.options.resultElement).set('html', this.currentState());
 
 		this.fireEvent('finish', value);
 		return this.level;

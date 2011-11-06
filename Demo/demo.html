@@ -6,14 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="css/demo.css" />
 
 	<!-- Include the mootools library first! -->
-	<script type="text/javascript" src="js/mootools-core.js"></script>
-	<script type="text/javascript" src="js/mootools-more.js"></script>
+	<script type="text/javascript" src="http://labs.broekhuizen.nu/demos/passchecker/js/mootools-core.js"></script>
+	<script type="text/javascript" src="http://labs.broekhuizen.nu/demos/passchecker/js/mootools-more.js"></script>
 
 	<!-- Include Passchecker.js -->
-	<script type="text/javascript" src="src/Passchecker.js"></script>
+	<script type="text/javascript" src="../Source/Passchecker.js"></script>
 
 	<!-- Include Twitter banned passwords -->
-	<script type="text/javascript" src="src/BannedPasswords.js"></script>
+	<script type="text/javascript" src="../Source/BannedPasswords.js"></script>
 
 	<!-- Now set up the Passchecker on an element -->
 	<script type="text/javascript">
@@ -22,13 +22,13 @@
 			    checkElement: 'pcPassword', // the element of which we want to check the content
 				resultElement: 'pcResult', // the element which will hold the check's result,
 
+				setHtml: true, // whether to fill the resultElement with the currentState
+
 				trigger: 'keyup', // event that will trigger the checking, possible values: 'change', 'keyup'
 
 				onFinish: function (value) {
 				    // red, orange, yellow, blue, green
 				    var colors = ["#FFF", "#FF7171", "#FF9A71", "#FFE371","#64F48C", "#74FF71"];
-
-				    $(this.options.resultElement).set('html', this.currentState());
 				    $(this.options.resultElement).tween('background-color', colors[this.level]);
 
 				    $('console').appendText("Text: " + value + ", Level: " + this.level + ", CurrentState: " + this.currentState() + "\n", "top");
