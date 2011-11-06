@@ -9,14 +9,16 @@ description: This class checks whether a password is safe. Uses twitter password
 
 license: MIT-style license
 
-author: Jaap Broekhuizen <jaap@broekhuizen.nu>
+authors:
+  - Jaap Broekhuizen
 
 version: 0.1
 
 requires:
   - Core/1.3: '*'
 
-provides: [Passchecker]
+provides:
+  - Passchecker
 
 ...
 */
