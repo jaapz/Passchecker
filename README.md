@@ -40,7 +40,7 @@ You can also add a callback to the list of options that will be called when chec
 	    $(this.options.resultElement).tween('background-color', colors[this.level]);
 	}
 
-You can find a working demo at: http://Slabs.broekhuizen.nu/demos/passchecker
+You can find a working demo at: http://labs.broekhuizen.nu/demos/passchecker
 
 Options
 -------
@@ -55,3 +55,4 @@ Here's a description of the options you can use with this plugin:
 * results: possible result strings, from weakest to strongest, must be an array of 6 strings
 * classes: classes that will be given to the result element, must be an array of 6 strings, corresponding with the 'results' array
 * bannedPasswords: an additional array of password strings that also will be banned
+
